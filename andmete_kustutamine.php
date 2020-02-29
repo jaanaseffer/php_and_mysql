@@ -10,6 +10,7 @@
 				<td>'.$rida['album'].'</td>
 				<td>'.$rida['aasta'].'</td>
 				<td><a href="'.$_SERVER['PHP_SELF'].'?id='.$rida["id"].'">kustuta</a></td>
+			    <td><a href="andmete_uuendamine.php?id='.$rida["id"].'">muuda</a></td>
 			</tr>';
     }
     if(!empty($_GET['id'])){
