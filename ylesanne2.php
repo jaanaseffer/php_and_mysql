@@ -36,6 +36,20 @@ while($rida = mysqli_fetch_assoc($valjund)){
     echo 'Kõige vanem album: '.$rida['aasta'].' - '.$rida['album'].'<br>';
 }
 echo '<hr>';
-
+$paring6 = 'SELECT album FROM albumid WHERE hind > (SELECT AVG(hind) FROM albumid)';
+$valjund = mysqli_query($yhendus, $paring6);
+while($rida = mysqli_fetch_assoc($valjund)){
+    echo 'Keskmisest kallimad albumid: '.$rida['album'].'<br>';
+}
+echo '<hr>';
 mysqli_free_result($valjund);
 mysqli_close($yhendus);
+?>
+<form method="get" action="">
+    Vali artist või album <select>
+        <option name="artist">Artist</option>
+        <option name="album">Album</option>
+    </select><br>
+    Otsing <input type="text" name="otsi"><br>
+    <input type="submit" value="otsi...">
+</form>
